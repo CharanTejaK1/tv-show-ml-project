@@ -1,2 +1,2 @@
 # tv-show-ml-project
-Machine Learning models built on TV Show dataset for prediction and analysis.
+Machine Learning models to predict TV show genres using TF-IDF and SVM.
