@@ -17,29 +17,24 @@ def evaluate_model(model, X_test, y_test):
         y_pred,
         average='weighted'
     )
-
     recall = recall_score(
         y_test,
         y_pred,
         average='weighted'
     )
-
     f1 = f1_score(
         y_test,
         y_pred,
         average='weighted'
     )
-
     cm = confusion_matrix(
         y_test,
         y_pred
     )
-
     report = classification_report(
         y_test,
         y_pred
     )
-
     return {
         "accuracy": accuracy,
         "precision": precision,

@@ -1,7 +1,7 @@
 import pandas as pd
 def drop_unnecessary_columns(df):
     df = df.copy()
-    df = df.drop(columns=['id', 'title'], errors='ignore')
+    df = df.drop(columns=['id','date_added'], errors='ignore')
     return df
 
 
@@ -35,12 +35,14 @@ GENRE_MAP = {
     'Reality TV':                    'TV Comedies',
 }
 
-def consolidate_genres(df, min_samples=100):
+def consolidate_genres(df, min_samples=75):
     df = df.copy()
     df['listed_in'] = df['listed_in'].apply(
-        lambda x: GENRE_MAP.get(
-            str(x).split(',')[0].strip(),
-            str(x).split(',')[0].strip()
+        lambda x: next(
+        (GENRE_MAP[g.strip()] 
+        for g in str(x).split(',') 
+        if g.strip() in GENRE_MAP),
+        str(x).split(',')[0].strip()
         )
     )
     counts = df['listed_in'].value_counts()
@@ -49,18 +51,25 @@ def consolidate_genres(df, min_samples=100):
     return df
 
 import re
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
+
 def clean_text(text):
     text = str(text).lower()
     text = re.sub(r'[^a-z\s]', ' ', text)
     text = re.sub(r'\s+', ' ', text).strip()
-    return text
+    words = [word for word in text.split() if word not in ENGLISH_STOP_WORDS and len(word) > 2]
+    return " ".join(words)
 
 def combine_text_features(df):
     df = df.copy()
     df['combined_text'] = (
-        df['type'].str.lower().fillna('')    + ' ' +
-        df['rating'].str.lower().fillna('')  + ' ' +
-        df['country'].str.lower().fillna('') + ' ' +
+        df['type'].apply(clean_text).fillna('')    + ' ' +
+        df['rating'].apply(clean_text).fillna('')  + ' ' +
+        df['country'].apply(clean_text).fillna('') + ' ' +
+        df['title'].apply(clean_text).fillna('') + ' ' +
+        df['cast'].apply(clean_text).fillna('') + ' ' +
+        df['director'].apply(clean_text).fillna('') + ' ' +
+        df['clean_desc'] + ' ' +
         df['clean_desc'] + ' ' +
         df['clean_desc']  
     )
@@ -78,10 +87,10 @@ from scipy.sparse import hstack
 def apply_tfidf(df_in):
     tfidf = TfidfVectorizer(
         max_features=40000,
-        ngram_range=(1, 3),      
+        ngram_range=(1, 2),      
         stop_words='english',
-        min_df=2,
-        max_df=0.90,
+        min_df=1,
+        max_df=0.95,
         sublinear_tf=True        
     )
     X_text = tfidf.fit_transform(df_in['combined_text'])
@@ -90,23 +99,7 @@ def apply_tfidf(df_in):
     X_combined = hstack([X_text, X_cat])
     return X_combined, tfidf, ohe
 
-import nltk
-from nltk.corpus import stopwords
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-stop_words = set(stopwords.words('english'))
 
 
 
