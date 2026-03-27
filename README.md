@@ -12,6 +12,8 @@ The goal is to demonstrate an end-to-end machine learning workflow including:
 - Model Evaluation
 - Model Explainability
 
+---
+
 ## 📂 Project Structure
 
 tv-show-ml-project/
@@ -31,16 +33,20 @@ tv-show-ml-project/
 ├── README.md  
 ├── report.docx
 
+---
 
 ## ▶️ How to Run the Project
 1. Open Anaconda Prompt
 2. Navigate to project folder:
+```bash
 cd Downloads\tv-show-ml-project
+```
 3. Start Jupyter Notebook:
 jupyter notebook
 4. Open:
 tv_show_analysis.ipynb
 5. Run all cells sequentially.
+
 ---
 
 ## 📊 Dataset Information
@@ -57,9 +63,9 @@ The dataset contains metadata about TV shows and movies including:
 - platform
 - listed_in (Genre)
 
-Target Variable:
+### Target Variable:
 
-listed_in → Genre of the TV show or movie.
+**listed_in → Genre of the TV show or movie.**
 
 This is a multi-class classification problem with multiple genre categories.
 
@@ -75,7 +81,7 @@ The following preprocessing steps were applied:
 - TF-IDF vectorization
 - Train-test split
 
-TF-IDF Parameters:
+### TF-IDF Parameters:
 
 - max_features = 40000
 - ngram_range = (1,3)
@@ -109,7 +115,7 @@ Models were evaluated using:
 - F1 Score
 - Confusion Matrix
 
-Observed Performance:
+### Observed Performance:
 
 - Logistic Regression Accuracy: ~61%
 - Linear SVM Accuracy: ~62%
@@ -147,16 +153,9 @@ Name: K Charan Sri Teja
 Project: TV Show & Movie Genre Prediction
 
 
-\## ⚙️ Installation
+## ⚙️ Installation
 
 Install required libraries using:
 
-
 ```bash
-
 pip install -r requirements.txt
-
-=======
-# tv-show-ml-project
-Machine Learning models to predict TV show genres using TF-IDF and SVM.
->>>>>>> 02507e6ed2db184ed5b3952ea20eefa7c3a18c23
