@@ -159,8 +159,3 @@ Install required libraries using:
 ```bash
 
 pip install -r requirements.txt
-
-=======
-# tv-show-ml-project
-Machine Learning models to predict TV show genres using TF-IDF and SVM.
->>>>>>> 02507e6ed2db184ed5b3952ea20eefa7c3a18c23
