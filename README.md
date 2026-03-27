@@ -1,3 +1,4 @@
+
 \# TV Show \& Movie Genre Prediction
 \## 📌 Project Overview
 This project focuses on building machine learning models to predict the genre of TV shows and movies using metadata such as description, cast, director, and other attributes.
@@ -159,3 +160,7 @@ Install required libraries using:
 
 pip install -r requirements.txt
 
+=======
+# tv-show-ml-project
+Machine Learning models to predict TV show genres using TF-IDF and SVM.
+>>>>>>> 02507e6ed2db184ed5b3952ea20eefa7c3a18c23
