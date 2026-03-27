@@ -15,22 +15,21 @@ The goal is to demonstrate an end-to-end machine learning workflow including:
 ## 📂 Project Structure
 
 tv-show-ml-project/
-│
-├── data/
-│   └── tv-shows.csv
-├── notebooks/
-│   └── tv\_show\_analysis.ipynb
-├── src/
-│   ├── data\_loader.py
-│   ├── preprocess.py
-│   ├── feature\_engineering.py
-│   ├── visualization.py
-│   ├── train.py
-│   ├── evaluate.py
-├── models/
-├── requirements.txt
-├── README.md
-└── report.docx
+
+├── data/  
+│   └── tv-shows.csv  
+├── notebooks/  
+│   └── tv_show_analysis.ipynb  
+├── src/  
+│   ├── data_loader.py  
+│   ├── preprocess.py  
+│   ├── feature_engineering.py  
+│   ├── visualization.py  
+│   ├── train.py  
+│   ├── evaluate.py  
+├── requirements.txt  
+├── README.md  
+├── report.docx
 
 
 ## ▶️ How to Run the Project
