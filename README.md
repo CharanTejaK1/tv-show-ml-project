@@ -33,25 +33,6 @@ tv-show-ml-project/
 ├── README.md  
 ├── report.docx
 
----
-=======
-├── data/  
-│   └── tv-shows.csv  
-├── notebooks/  
-│   └── tv_show_analysis.ipynb  
-├── src/  
-│   ├── data_loader.py  
-│   ├── preprocess.py  
-│   ├── feature_engineering.py  
-│   ├── visualization.py  
-│   ├── train.py  
-│   ├── evaluate.py  
-├── requirements.txt  
-├── README.md  
-├── report.docx
-
->>>>>>> 3be6064 (Formatted README file)
->>>>>>> e7db296 (Formatted README file)
 
 ## ▶️ How to Run the Project
 1. Open Anaconda Prompt
@@ -60,7 +41,6 @@ tv-show-ml-project/
 cd Downloads\tv-show-ml-project
 ```
 3. Start Jupyter Notebook:
-```bash
 jupyter notebook
 4. Open:
 tv_show_analysis.ipynb
@@ -85,8 +65,6 @@ The dataset contains metadata about TV shows and movies including:
 ### Target Variable:
 
 **listed_in → Genre of the TV show or movie.**
-
-
 
 This is a multi-class classification problem with multiple genre categories.
 
