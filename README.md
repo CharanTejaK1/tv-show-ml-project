@@ -150,6 +150,7 @@ The project demonstrates a complete machine learning pipeline including EDA, pre
 ## 👤 Author
 
 Name: K Charan Sri Teja
+
 Project: TV Show & Movie Genre Prediction
 
 
