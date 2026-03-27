@@ -1,41 +1,36 @@
 
-\# TV Show \& Movie Genre Prediction
-\## 📌 Project Overview
+## TV Show & Movie Genre Prediction
+## 📌 Project Overview
 This project focuses on building machine learning models to predict the genre of TV shows and movies using metadata such as description, cast, director, and other attributes.
 
 The goal is to demonstrate an end-to-end machine learning workflow including:
-\- Data Understanding
-\- Exploratory Data Analysis (EDA)
-\- Data Preprocessing
-\- Feature Engineering
-\- Model Training
-\- Model Evaluation
-\- Model Explainability
+- Data Understanding
+- Exploratory Data Analysis (EDA)
+- Data Preprocessing
+- Feature Engineering
+- Model Training
+- Model Evaluation
+- Model Explainability
 
-\---
-\## 📂 Project Structure
+## 📂 Project Structure
 
 tv-show-ml-project/
-│
-├── data/
-│   └── tv-shows.csv
-├── notebooks/
-│   └── tv\_show\_analysis.ipynb
-├── src/
-│   ├── data\_loader.py
-│   ├── preprocess.py
-│   ├── feature\_engineering.py
-│   ├── visualization.py
-│   ├── train.py
-│   ├── evaluate.py
-├── models/
-├── requirements.txt
-├── README.md
-└── report.docx
 
-\---
+├── data/  
+│   └── tv-shows.csv  
+├── notebooks/  
+│   └── tv_show_analysis.ipynb  
+├── src/  
+│   ├── data_loader.py  
+│   ├── preprocess.py  
+│   ├── feature_engineering.py  
+│   ├── visualization.py  
+│   ├── train.py  
+│   ├── evaluate.py  
+├── requirements.txt  
+├── README.md  
+├── report.docx
 
----
 ## ▶️ How to Run the Project
 1. Open Anaconda Prompt
 2. Navigate to project folder:
