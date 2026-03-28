@@ -97,7 +97,6 @@ def combine_text_features(df):
         df['cast'].apply(clean_text).fillna('') + ' ' +
         df['director'].apply(clean_text).fillna('') + ' ' +
         df['clean_desc'] + ' ' +
-        df['clean_desc'] + ' ' +
         df['clean_desc']  
     )
     return df
