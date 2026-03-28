@@ -116,10 +116,10 @@ Models were evaluated using:
 
 ### Observed Performance:
 
-- Logistic Regression Accuracy: ~67%
-- Linear SVM Accuracy: ~68%
-- Logistic Regression F1 Score: ~67%
-- Linear SVM F1 Score: ~68%
+- Logistic Regression Accuracy: ~68%
+- Linear SVM Accuracy: ~67%
+- Logistic Regression F1 Score: ~70%
+- Linear SVM F1 Score: ~69%
 
 Best Model:
 
