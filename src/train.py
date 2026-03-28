@@ -1,6 +1,6 @@
 from sklearn.linear_model import LogisticRegression
 def train_logistic_regression(X_train, y_train):
-    param_grid = {'C': [0.1,0.5, 1, 2, 5,10],'solver':['lbfgs'],'penalty':['l2']}
+    param_grid = {'C': [0.1,0.5, 1, 2, 5,10],'solver':['lbfgs','saga'],'penalty':['l2']}
     lr = LogisticRegression(class_weight='balanced', max_iter=3000)
     grid = GridSearchCV(
         lr, 
@@ -17,7 +17,7 @@ def train_logistic_regression(X_train, y_train):
 from sklearn.svm import LinearSVC
 from sklearn.model_selection import GridSearchCV
 def train_svm(X_train, y_train):
-    param_grid = {'C': [0.1,0.5, 1, 2, 5,10],'loss':['hinge','squared_hinge']}
+    param_grid = {'C': [3,5,7,10],'loss':['squared_hinge']}
     svm = LinearSVC(class_weight='balanced', max_iter=10000)
     grid = GridSearchCV(
         svm, 

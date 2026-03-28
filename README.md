@@ -82,7 +82,7 @@ The following preprocessing steps were applied:
 
 ### TF-IDF Parameters:
 
-- max_features = 40000
+- max_features = 60000
 - ngram_range = (1,3)
 - stop_words = english
 
@@ -116,8 +116,10 @@ Models were evaluated using:
 
 ### Observed Performance:
 
-- Logistic Regression Accuracy: ~61%
-- Linear SVM Accuracy: ~62%
+- Logistic Regression Accuracy: ~67%
+- Linear SVM Accuracy: ~68%
+- Logistic Regression F1 Score: ~67%
+- Linear SVM F1 Score: ~68%
 
 Best Model:
 

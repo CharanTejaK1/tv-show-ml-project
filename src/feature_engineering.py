@@ -6,36 +6,63 @@ def drop_unnecessary_columns(df):
 
 
 GENRE_MAP = {
+    'International TV Shows':   'International TV Shows',
+    'Dramas':                   'Dramas',
+    'Comedies':                 'Comedies',
+    'Action & Adventure':       'Action & Adventure',
+    'Documentaries':            'Documentaries',
+    'Children & Family Movies': 'Children & Family Movies',
+    'Animation':                'Animation',
+    'Thrillers':                'Thrillers',
+    'Crime & Thriller TV':      'Crime & Thriller TV',
+
     'Action-Adventure':             'Action & Adventure',
+    'TV Action & Adventure':        'Action & Adventure',
+    'Sports Movies':                'Action & Adventure',
+    'Sci-Fi & Fantasy':             'Action & Adventure',
+    'Fantasy':                      'Action & Adventure',
+
     'Comedy':                        'Comedies',
     'Stand-Up Comedy':               'Comedies',
     'Stand-Up Comedy & Talk Shows':  'Comedies',
+    'Reality TV':                    'Comedies',
+    'Musical':                       'Comedies',
+
     'Docuseries':                    'Documentaries',
+    'Science & Nature TV':           'Documentaries',
+    'Animals & Nature':              'Documentaries',
+    'Music & Musicals':              'Documentaries',
+
     'Romantic Movies':               'Dramas',
     'Coming of Age':                 'Dramas',
     'Independent Movies':            'Dramas',
     'LGBTQ Movies':                  'Dramas',
+    'Drame':                         'Dramas',
+    'TV Dramas':                     'Dramas',
+    'Romantic TV Shows':             'Dramas',
+
     'Latin American Movies':         'International Movies',
     'Middle Eastern Movies':         'International Movies',
+
     'Anime Series':                  'Animation',
     'Anime Features':                'Animation',
+
     "Kids' TV":                      'Children & Family Movies',
     'Family':                        'Children & Family Movies',
+    'Kids':                          'Children & Family Movies',
+
     'Korean TV Shows':               'International TV Shows',
     'British TV Shows':              'International TV Shows',
     'Spanish-Language TV Shows':     'International TV Shows',
+
     'Horror Movies':                 'Thrillers',
     'Crime TV Shows':                'Crime & Thriller TV',
     'TV Horror':                     'Crime & Thriller TV',
-    'Romantic TV Shows':             'TV Dramas',
-    'Sports Movies':                 'Action & Adventure',
-    'Sci-Fi & Fantasy':              'Action & Adventure',
-    'Fantasy':                       'Action & Adventure',
-    'Music & Musicals':              'Documentaries',
-    'Reality TV':                    'TV Comedies',
+    'TV Mysteries':                  'Crime & Thriller TV',
+    'TV Thrillers':                  'Crime & Thriller TV',   
 }
 
-def consolidate_genres(df, min_samples=75):
+def consolidate_genres(df, min_samples=150):
     df = df.copy()
     df['listed_in'] = df['listed_in'].apply(
         lambda x: next(
@@ -86,7 +113,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from scipy.sparse import hstack
 def apply_tfidf(df_in):
     tfidf = TfidfVectorizer(
-        max_features=40000,
+        max_features=60000,
         ngram_range=(1, 2),      
         stop_words='english',
         min_df=1,
@@ -95,7 +122,7 @@ def apply_tfidf(df_in):
     )
     X_text = tfidf.fit_transform(df_in['combined_text'])
     ohe = OneHotEncoder(handle_unknown='ignore', sparse_output=True)
-    X_cat = ohe.fit_transform(df_in[['type', 'rating']].fillna('unknown'))
+    X_cat = ohe.fit_transform(df_in[['type', 'rating','platform']].fillna('unknown'))
     X_combined = hstack([X_text, X_cat])
     return X_combined, tfidf, ohe
 
