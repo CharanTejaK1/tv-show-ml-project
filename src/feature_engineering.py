@@ -6,6 +6,7 @@ def drop_unnecessary_columns(df):
 
 
 GENRE_MAP = {
+    'International Movies':     'International Movies',
     'International TV Shows':   'International TV Shows',
     'Dramas':                   'Dramas',
     'Comedies':                 'Comedies',
@@ -15,6 +16,7 @@ GENRE_MAP = {
     'Animation':                'Animation',
     'Thrillers':                'Thrillers',
     'Crime & Thriller TV':      'Crime & Thriller TV',
+    
 
     'Action-Adventure':             'Action & Adventure',
     'TV Action & Adventure':        'Action & Adventure',
@@ -37,7 +39,7 @@ GENRE_MAP = {
     'Coming of Age':                 'Dramas',
     'Independent Movies':            'Dramas',
     'LGBTQ Movies':                  'Dramas',
-    'Drame':                         'Dramas',
+    'Drama':                         'Dramas',
     'TV Dramas':                     'Dramas',
     'Romantic TV Shows':             'Dramas',
 
@@ -84,7 +86,7 @@ def clean_text(text):
     text = str(text).lower()
     text = re.sub(r'[^a-z\s]', ' ', text)
     text = re.sub(r'\s+', ' ', text).strip()
-    words = [word for word in text.split() if word not in ENGLISH_STOP_WORDS and len(word) > 2]
+    words = [word for word in text.split() if word not in ENGLISH_STOP_WORDS ]
     return " ".join(words)
 
 def combine_text_features(df):
