@@ -140,11 +140,16 @@ The following visualizations were created:
 
 ---
 
-## 📌 Conclusion
+## Model Summary
 
-The Linear SVM model provided better performance for predicting genres.
+This project predicts movie or TV show genres using machine learning models trained on TF-IDF text features.
 
-The project demonstrates a complete machine learning pipeline including EDA, preprocessing, model training, evaluation, and explainability.
+Models Used:
+- Logistic Regression
+- Linear Support Vector Machine (SVM)
+
+Final Recommended Model:
+Linear SVM was selected due to its superior performance on high-dimensional sparse text data and slightly higher evaluation metrics.
 
 ---
 
@@ -154,6 +159,7 @@ Name: K Charan Sri Teja
 
 Project: TV Show & Movie Genre Prediction
 
+---
 
 ## ⚙️ Installation
 

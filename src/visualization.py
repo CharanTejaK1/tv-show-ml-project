@@ -79,3 +79,33 @@ def plot_confusion_matrix(y_test,y_pred,title="Confusion Matrix"):
     plt.yticks(rotation=0)
     plt.tight_layout()
     plt.show()
+
+
+import numpy as np
+import pandas as pd
+def plot_feature_importance(model, vectorizer,ohe, top_n=15):
+    tdidf_feature = vectorizer.get_feature_names_out()
+    ohe_feature = ohe.get_feature_names_out()
+    feature_names = np.concatenate([tdidf_feature,ohe_feature])
+    importance = np.mean(model.coef_, axis=0)
+    feature_df = pd.DataFrame({
+        "Feature": feature_names,
+        "Importance": importance
+    })
+    top_features = feature_df.sort_values(
+        by="Importance",
+        ascending=False
+    ).head(top_n)
+    print("\nTop Important Features:\n")
+    print(top_features)
+    plt.figure(figsize=(10,6))
+    plt.barh(
+        top_features["Feature"],
+        top_features["Importance"]
+    )
+    plt.gca().invert_yaxis()
+    plt.title("Top Important Features")
+    plt.xlabel("Importance")
+    plt.ylabel("Feature")
+    plt.tight_layout()
+    plt.show()
