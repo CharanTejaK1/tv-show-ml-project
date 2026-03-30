@@ -19,8 +19,8 @@ def plot_missing_percentage(df):
 
 def plot_genre_distribution(df):
     plt.figure(figsize=(12,6))
-    df['listed_in'].value_counts().head(15).plot(kind='bar')
-    plt.title("Top 15 Genre Distribution")
+    df['listed_in'].value_counts().plot(kind='bar')
+    plt.title("Genre Distribution")
     plt.xlabel("Genre")
     plt.ylabel("Count")
     plt.xticks(rotation=45)
